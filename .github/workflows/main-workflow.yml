@@ -31,5 +31,8 @@ jobs:
     - name: tshirts fail
       run: python tshirts.py
     
-    - name: misaligned
+    - name: misaligned fail
       run: python misaligned.py
+
+    - name: alerter fail
+      run: python alerter.py

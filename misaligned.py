@@ -1,13 +1,13 @@
 
-def printColorMap():
-    majorColors = ["White", "Red", "Black", "Yellow", "Violet"]
-    minorColors = ["Blue", "Orange", "Green", "Brown", "Slate"]
-    for i, major in enumerate(majorColors):
-        for j, minor in enumerate(minorColors):
+def print_color_map():
+    major_colors = ["White", "Red", "Black", "Yellow", "Violet"]
+    minor_colors = ["Blue", "Orange", "Green", "Brown", "Slate"]
+    for i, major in enumerate(major_colors):
+        for j, minor in enumerate(minor_colors):
             print(f'{i * 5 + j} | {major} | {minor}')
-    return len(majorColors) * len(minorColors)
+    return len(major_colors) * len(minor_colors)
 
 
-result = printColorMap()
+result = print_color_map()
 assert(result == 25)
 print("All is well (maybe!)\n")
