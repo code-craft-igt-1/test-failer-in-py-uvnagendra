@@ -30,3 +30,6 @@ jobs:
     
     - name: tshirts fail
       run: python tshirts.py
+    
+    - name: misaligned
+      run: python misaligned.py
