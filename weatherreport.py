@@ -1,11 +1,11 @@
 
-# This is a stub for a weather sensor. For the sake of testing 
+# This is a stub for a weather sensor. For the sake of testing
 # we create a stub that generates weather data and allows us to
 # test the other parts of this application in isolation
 # without needing the actual Sensor during development
 
 class WeatherSensorStub:
-    
+
     def humidity(self):
         return 72
 
@@ -36,7 +36,7 @@ def test_rainy():
     sensor_stub = WeatherSensorStub()
     weather_report = report(sensor_stub)
     print(weather_report)
-    assert('rain' in weather_report)
+    assert ('rain' in weather_report)
 
 
 # Test another rainy day
@@ -48,7 +48,7 @@ def test_high_precipitation_and_low_windspeed():
     weather_report = report(sensor_stub)
     # strengthen the assert to expose the bug
     # (function returns Sunny day, it should predict rain)
-    assert(len(weather_report) > 0)
+    assert (len(weather_report) > 0)
 
 
 if __name__ == '__main__':
