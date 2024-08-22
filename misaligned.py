@@ -16,7 +16,7 @@ def get_color_map():
     color_map = []
     for i, major in enumerate(MAJOR_COLORS):
         for j, minor in enumerate(MINOR_COLORS):
-            color_map.append(f'{i * 5 + j} | {major} | {minor}')
+            color_map.append(f'{i * 5 + j+1} | {major} | {minor}')
     color_combinations = len(MAJOR_COLORS) * len(MINOR_COLORS)
     return color_map, color_combinations
 
@@ -41,3 +41,5 @@ def get_color_from_pair_number(pair_number):
     if minor_index >= len(MAJOR_COLORS):
         raise Exception('Minor index out of range')
     return MAJOR_COLORS[major_index], MINOR_COLORS[minor_index]
+
+

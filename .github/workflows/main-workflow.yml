@@ -28,10 +28,10 @@ jobs:
         flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
     
     - name: tshirts fail
-      run: bash .github/workflows/expectfail.sh python tshirts_test.py
+      run: python tshirts_test.py
     
     - name: misaligned fail
-      run: bash .github/workflows/expectfail.sh python misaligned_test.py
+      run: python misaligned_test.py
 
     - name: weatherreport fail
-      run: bash .github/workflows/expectfail.sh python weatherreport_test.py
+      run: python weatherreport_test.py

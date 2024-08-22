@@ -12,8 +12,13 @@ def size(cms):
     Returns:
         str: The size ('S', 'M', or 'L').
     """
-    if cms < 38:
+    if cms <= 38:
         return 'S'
-    if 38 <= cms < 42:
+    if 38 < cms <= 42:
         return 'M'
     return 'L'
+
+
+
+
+

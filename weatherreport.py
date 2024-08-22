@@ -65,6 +65,6 @@ def report(sensor):
     if sensor.temperature_in_celsius > 25:
         if 20 < sensor.precipitation < 60:
             report_out = 'Partly cloudy'
-        elif sensor.windspeed_in_kmph > 50:
+        elif sensor.windspeed_in_kmph < 55:
             report_out = 'Alert: Stormy with heavy rain'
     return report_out

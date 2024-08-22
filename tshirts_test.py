@@ -17,7 +17,7 @@ class TestSize(unittest.TestCase):
 
     def test_size_l(self):
         """Test size function for size L."""
-        self.assertEqual(size(40), 'L')
+        self.assertEqual(size(43), 'L')
 
 if __name__ == '__main__':
     unittest.main()
