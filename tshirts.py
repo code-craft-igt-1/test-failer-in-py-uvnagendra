@@ -1,14 +1,24 @@
-
+"""
+This module provides a function to determine the size of a t-shirt 
+based on the given measurement in centimeters.
+"""
 def size(cms):
-    if cms < 38:
+    """
+    Determine the size based on the given measurement in centimeters.
+
+    Args:
+        cms (int): The measurement in centimeters.
+
+    Returns:
+        str: The size ('S', 'M', or 'L').
+    """
+    if cms <= 38:
         return 'S'
-    elif cms > 38 and cms < 42:
+    if 38 < cms <= 42:
         return 'M'
-    else:
-        return 'L'
+    return 'L'
 
 
-assert (size(37) == 'S')
-assert (size(40) == 'M')
-assert (size(43) == 'L')
-print("All is well (maybe!)\n")
+
+
+

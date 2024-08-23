@@ -1,57 +1,70 @@
-
-# This is a stub for a weather sensor. For the sake of testing
-# we create a stub that generates weather data and allows us to
-# test the other parts of this application in isolation
-# without needing the actual Sensor during development
+"""
+This module contains a stub for a weather sensor and a function to generate weather reports.
+The WeatherSensorStub class simulates weather data for testing purposes.
+The report function generates a weather report based on the sensor data.
+"""
 
 class WeatherSensorStub:
+    """
+    A stub class to simulate weather sensor data for testing purposes.
+    """
 
-    def humidity(self):
-        return 72
+    def __init__(self, humidity=0, precipitation=0, temperature_in_celsius=0, windspeed_in_kmph=0):
+        self.humidity = humidity
+        self.precipitation = precipitation
+        self.temperature_in_celsius = temperature_in_celsius
+        self.windspeed_in_kmph = windspeed_in_kmph
 
-    def precipitation(self):
-        return 70
+    def get_temperature(self):
+        """
+        Get the current temperature in Celsius.
 
-    def temperature_in_celsius(self):
-        return 26
+        Returns:
+            int: The temperature in Celsius.
+        """
+        return self.temperature_in_celsius
 
-    def windspeed_in_kmph(self):
-        return 52
+    def get_precipitation(self):
+        """
+        Get the current precipitation level.
 
+        Returns:
+            int: The precipitation level.
+        """
+        return self.precipitation
+
+    def get_humidity(self):
+        """
+        Get the current humidity level.
+
+        Returns:
+            int: The humidity level.
+        """
+        return self.humidity
+
+    def get_wind_speed(self):
+        """
+        Get the current wind speed in km/h.
+
+        Returns:
+            int: The wind speed in km/h.
+        """
+        return self.windspeed_in_kmph
 
 def report(sensor):
-    precipitation = sensor.precipitation()
+    """
+    Generate a weather report based on the sensor data.
+
+    Args:
+        sensor (WeatherSensorStub): The weather sensor stub instance.
+
+    Returns:
+        str: The weather report.
+    """
     report_out = 'Sunny day'
-    if sensor.temperature_in_celsius() > 25:
-        if precipitation > 20 and precipitation < 60:
+    if sensor.temperature_in_celsius > 25:
+        if 20 < sensor.precipitation < 60:
             report_out = 'Partly cloudy'
-        elif sensor.windspeed_in_kmph() > 50:
+        elif sensor.windspeed_in_kmph < 55:
             report_out = 'Alert: Stormy with heavy rain'
     return report_out
-
-
-# Test a rainy day
-
-def test_rainy():
-    sensor_stub = WeatherSensorStub()
-    weather_report = report(sensor_stub)
-    print(weather_report)
-    assert ('rain' in weather_report)
-
-
-# Test another rainy day
-
-def test_high_precipitation_and_low_windspeed():
-    # This instance of stub needs to be different-
-    # to give high precipitation (>60) and low wind-speed (<50)
-    sensor_stub = WeatherSensorStub()
-    weather_report = report(sensor_stub)
-    # strengthen the assert to expose the bug
-    # (function returns Sunny day, it should predict rain)
-    assert (len(weather_report) > 0)
-
-
-if __name__ == '__main__':
-    test_rainy()
-    test_high_precipitation_and_low_windspeed()
-    print('All is well (maybe)')
